@@ -40,7 +40,7 @@ public class GamblingSimulation{
 					money = a.balance();
 					break;
                 case 2:
-					System.out.print("Welcome to BlackJack. This is game where you play against the computer and roll dice to get the highest possible score under 21. How much would you like to bet on the Slot Machines? ");
+					System.out.print("Welcome to BlackJack. This is game where you play against the computer and roll dice to get the highest possible score under 21. How much would you like to bet on Blackjack? ");
 					int betSM2 = scan.nextInt();
 					while(betSM2 > money){
 						System.out.print("You dont have enough money? Please desosit more. Enter the amount here: ");
@@ -139,14 +139,16 @@ class slotMachine{
 		cScore = 0;
 		}
 		public void run(){
+			System.out.println("Let us begin the game.");
 		while(pScore <= 21){
-			System.out.print("Let us begin the game. Would you like to roll a pair of dice? Type Y or N.");
+			System.out.print("Would you like to roll a pair of dice? Type Y or N. ");
 			String cho = inp.nextLine();
 			if(cho.equals("Y")){
 			  for(int e = 0; e < 2; e++){
 			  	cScore += (int)(Math.random()*5+1);
 			  	pScore += (int)(Math.random()*5+1);
 			  }
+			   System.out.print("The computer has recieved its score. Your score is "+pScore+". ");
 			}else{
 				break;
 			}
