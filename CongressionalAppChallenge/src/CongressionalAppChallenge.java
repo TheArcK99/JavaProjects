@@ -263,8 +263,7 @@ public class CongressionalAppChallenge extends PApplet {
     image(arrow,500, 690);
     fill(153,186,221);
     rect(150,375,300,125, 25);
-  /*  rect(150,525,300,125, 25);
-*/
+	    
     fill(textR, textG, textB);
     textSize(60);
     textAlign(CENTER);
@@ -533,22 +532,19 @@ class TestJFilePicker extends JFrame {
 
         setLayout(new FlowLayout());
 
-        // set up a file picker component
         JFilePicker filePicker = new JFilePicker("Pick a file", "Browse...");
         filePicker.setMode(JFilePicker.MODE_SAVE);
         filePicker.addFileTypeFilter(".jpg", "JPEG Images");
         filePicker.addFileTypeFilter(".mp4", "MPEG-4 Videos");
 
-        // access JFileChooser class directly
         JFileChooser fileChooser = filePicker.getFileChooser();
         fileChooser.setCurrentDirectory(new File("D:/"));
 
-        // add the component to the frame
         add(filePicker);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(520, 100);
-        setLocationRelativeTo(null);    // center on screen
+        setLocationRelativeTo(null);    
     }
 
     public String pick() {
@@ -610,7 +606,6 @@ class JFilePicker extends JPanel {
 
         setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        // creates the GUI
         label = new JLabel(textFieldLabel);
 
         textField = new JTextField(30);
@@ -666,13 +661,9 @@ class KMP_String_Matching {
         int N = txt.length();
         int[] indexes= new int[0];
 
-        // create lps[] that will hold the longest
-        // prefix suffix values for pattern
         int lps[] = new int[M];
         int j = 0; // index for pat[]
 
-        // Preprocess the pattern (calculate lps[]
-        // array)
         computeLPSArray(pat, M, lps);
 
         int i = 0; // index for txt[]
@@ -688,10 +679,7 @@ class KMP_String_Matching {
                 j = lps[j - 1];
             }
 
-            // mismatch after j matches
             else if (i < N && pat.charAt(j) != txt.charAt(i)) {
-                // Do not match lps[0..lps[j-1]] characters,
-                // they will match anyway
                 if (j != 0)
                     j = lps[j - 1];
                 else
@@ -767,7 +755,6 @@ class KMP_String_Matching {
 
     void computeLPSArray(String pat, int M, int lps[])
     {
-        // length of the previous longest prefix suffix
         int len = 0;
         int i = 1;
         lps[0] = 0; // lps[0] is always 0
@@ -781,14 +768,8 @@ class KMP_String_Matching {
             }
             else // (pat[i] != pat[len])
             {
-                // This is tricky. Consider the example.
-                // AAACAAAA and i = 7. The idea is similar
-                // to search step.
                 if (len != 0) {
                     len = lps[len - 1];
-
-                    // Also, note that we do not increment
-                    // i here
                 }
                 else // if (len == 0)
                 {
